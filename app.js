@@ -15,7 +15,8 @@ var app = express();
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb+srv://webkidt:chomo3695@webkidt-cluster-8no5r.gcp.mongodb.net/local_library?retryWrites=true';
+const dev_db_url = 'mongodb+srv://webkidt:chomo3695@webkidt-cluster-8no5r.gcp.mongodb.net/local_library?retryWrites=true';
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 
